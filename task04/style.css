@@ -1,0 +1,102 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Nabbar Start*/
+.navBar {
+    padding: 30px;
+    width: 100%;
+    height: 10vh;
+    text-align: center;
+
+}
+
+.logo {
+    display: inline-block;
+    vertical-align: middle;
+    color: #495965;
+}
+
+.menu {
+    display: inline-block;
+    width: 75vw;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.menuItem {
+    display: inline-block;
+    margin-left: 20px;
+    padding: 20px;
+    color: #A8AEAF;
+}
+
+.userName {
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px;
+    background-color: #E7F7FF;
+    color: skyblue;
+    border-radius: 5px;
+}
+
+/* Nabbar end */
+
+/* Hero Section Start */
+
+.heroSection {
+    width: 100vw;
+    height: 60vh;
+    margin-top: 100px;
+    text-align: center;
+}
+
+.content {
+    width: 40vw;
+    display: inline-block;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+    position: relative;
+}
+
+.content>h1 {
+    font-size: 2rem;
+}
+
+.content>p {
+    color: gray;
+}
+
+.laundaryService {
+    color: #30B4FF;
+}
+
+.bookBtn {
+    background-color: #30B4FF;
+    border-radius: 5px;
+    padding: 20px 40px;
+    border: none;
+    margin-top: 30px;
+    color: white;
+}
+
+.imgBox {
+    width: 40vw;
+    text-align: center;
+    display: inline-block;
+}
+
+.machineImg {
+    height: 350px;
+    width: 350px;
+}
+
+.content,
+.imgBox {
+    vertical-align: top;
+}
+
+/* Hero Section End */
