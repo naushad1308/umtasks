@@ -115,6 +115,11 @@ body {
     border: none;
     max-width: 300px;
     cursor: pointer;
+    transition: all 1s ease;
+}
+
+.bookBtn:hover {
+    transform: rotateZ(-5deg) scale(1.2);
 }
 
 .imgBox {
