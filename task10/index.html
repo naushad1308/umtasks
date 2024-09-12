@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task10</title>
+</head>
+
+<body>
+
+    <h1>task10</h1>
+    <h1>Compound Interest</h1>
+    <!-- output render -->
+    <h1>
+        p = 1000,
+        r = 0.05,
+        n = 12,
+        t = 10
+    </h1>
+    <h2 id="output"></h2>
+
+    <script>
+
+        var P = 1000; // Principal amount
+        var r = 0.05; // Annual interest rate (5%)
+        var n = 12; // Number of times interest is compounded per year
+        var t = 10; // Time in years
+
+        //  compound interest
+        var A = P * Math.pow((1 + (r / n)), (n * t));
+
+        console.log("The amount after " + t + " years is: " + A.toFixed(2));
+        document.write(A)
+    </script>
+</body>
+
+</html>
