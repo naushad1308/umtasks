@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task11</title>
+</head>
+
+<body>
+
+    <h1 style="text-align: center;">Task11</h1>
+    <h1>Check Number is Even or Odd </h1>
+    <form>
+        <input id="userNumber" type="text" placeholder="Write a Number" oninput="evenOdd()">
+        <input type="reset">
+    </form>
+
+    <h1 id="output" style="color: gray;">Output will show here...</h1>
+
+
+
+    <script>
+        let userInput = document.querySelector("#userNumber")
+        let output = document.querySelector("#output")
+        function evenOdd() {
+            const number = parseInt(userInput.value)
+            let result
+            if (number % 2 === 0) {
+
+                result = `${number} is Even`
+            } else {
+                result = `${number} is Odd`
+            }
+
+            output.innerHTML = result
+            console.log(output)
+        }
+    </script>
+</body>
+
+</html>
