@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+    font-family: "Roboto", sans-serif;
+    /* font-style: normal; */
+}
+
+:root {
+    --primary-color: #FF8B07;
+    --secondary-color: #2378FF;
+    --background-color: #F6F8F9;
+    --text-muted: #8b9094;
+
+}
+
+
+/* header start */
+.wrapper {
+    height: 100vh;
+    width: 100%;
+    background: rgb(255, 250, 250);
+}
+
+.header {
+    padding: 20px 80px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: var(--primary-color);
+}
+
+.menu {
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+}
+
+
+
+.menuItems a {
+    text-decoration: none;
+    color: var(--text-muted);
+}
+
+.profile {
+    width: 25%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.bi-search {
+    padding: 0pc 5px;
+}
+
+.searchBox {
+    border: 1px solid gray;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+.inputSearch {
+    border: none;
+    padding: 4px;
+    background: transparent;
+}
+
+.cartBox {
+    border: 1px solid gray;
+    padding: 4px 10px;
+    border-radius: 5px;
+}
+
+.bi-bag {
+    color: blue;
+}
+
+.profileImg {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
