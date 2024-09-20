@@ -1,0 +1,52 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.userName {
+    text-align: center;
+    background-color: #F1F1F3;
+    padding: 20px;
+}
+
+.colorBox {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 60%;
+}
+
+.box {
+    height: 100px;
+    width: 100px;
+    border: 1px solid rgb(82, 82, 82);
+}
+
+.nameBox {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+}
+
+.greetBtn {
+
+    margin-left: 5px;
+    background-color: #3966e0;
+    padding: 10px 30px;
+    border: none;
+}
+
+input:focus,
+input:active {
+    outline: none;
+}
