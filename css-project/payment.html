@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./payment.css">
+    <title>Payment</title>
+</head>
+
+<body>
+    <div class="paymentWrapper">
+        <div class="left">
+            <span class="checkout">Checkout</span>
+            <h4 style="padding: 10px 0px;">Contact Details</h4>
+            <div>
+                <label for="email" class="email">Email ID</label>
+                <input class="emailInput" type="text" placeholder="hello@gmail.com">
+            </div>
+
+            <h4 style="padding: 10px 0px;">Payment</h4>
+            <div class="cardDetails">
+                <div class="paymentType">
+                    <div class="card">
+                        <p><i class="bi bi-card-heading"></i></p>
+                        Card
+                    </div>
+                    <div class="card">
+                        <p><i class="bi bi-currency-bitcoin"></i></p>
+                        Crypto
+                    </div>
+                    <div class="card">
+                        <p><i class="bi bi-bank2"></i></p>
+                        Bank
+                    </div>
+                    <div class="card" style="text-align: center;">...</div>
+                </div>
+                <div class="cardNumber">
+                    <label for="card-number">Card Number</label>
+                    <input type="text" placeholder="1234 5678 9012 3456">
+                </div>
+                <div class="card-box">
+                    <div>
+                        <label for="expiry">Expiry</label>
+                        <input type="text" placeholder="MM/YY">
+                    </div>
+                    <div>
+                        <label for="cvc">CVC</label>
+                        <input type="text" placeholder="...">
+                    </div>
+                </div>
+                <div class="card-box">
+                    <div>
+                        <label for="country">Country</label>
+                        <input type="text" placeholder="India">
+                    </div>
+                    <div>
+                        <label for="zip">ZIP</label>
+                        <input type="text" placeholder="xxxx">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="billingDetails">
+                <h5>Enter Coupen Code</h5>
+                <div class="cBox mb-10">
+                    <input type="text" placeholder="COUPEN CODE" class="coupenInput">
+                    <button class="applyBtn">Apply Coupen</button>
+                </div>
+                <div class="cBox">
+                    <span>Sub Total</span>
+                    <span>&#8377; 4,999</span>
+                </div>
+                <div class="cBox">
+                    <span>Taxes(If applicable)</span>
+                    <span>&#8377; 199</span>
+                </div>
+                <div class="cBox">
+                    <span>Discount</span>
+                    <span>&#8377; 0</span>
+                </div>
+                <div class="card-Box total">
+                    <span>Total</span>
+                    <span>&#8377; 4,999</span>
+                </div>
+            </div>
+
+            <Button class="payNow">Pay Now &#8377; 4,999 </Button>
+            <div class="securePaymentImg">
+                <img src="./images/secure1.png" alt="">
+                <img src="./images/razorpay.png" alt="">
+                <img src="./images/secure.png" alt="">
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
