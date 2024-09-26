@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+    font-family: "Roboto", sans-serif;
+    /* font-style: normal; */
+}
+
+:root {
+    --primary-color: #FF8B07;
+    --secondary-color: #2378FF;
+    --background-color: #F6F8F9;
+    --text-muted: #8b9094;
+
+}
+
+
+
+.header {
+    padding: 0px 80px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+}
+
+
+
+.menu {
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    margin-bottom: 0;
+}
+
+
+
+.menuItems a {
+    text-decoration: none;
+    color: var(--text-muted);
+}
+
+.profile {
+    display: flex;
+    justify-content: space-between;
+    background-color: #EDF8FE;
+    border-radius: 10px;
+}
+
+.username {
+    padding: 10px 10px;
+}
+
+.logoutIcon {
+    padding: 10px 10px;
+    background-color: #eb3d5d;
+    color: #FFCED7;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    cursor: pointer;
+
+}
+
+
+/* Service Section Start */
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 20px 80px;
+    background-color: #e9ebec;
+    /* height: 12vh; */
+}
+
+.left,
+.right {
+    flex: 0 0 48%;
+    border-radius: 10px;
+    /* height: 100%; */
+    /* padding: 10px; */
+
+}
+
+
+/* left section start */
+
+.hide {
+    display: block;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 600px;
+}
+
+
+table {
+    padding: 10px;
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+tr>th {
+    background-color: #F6F8FA;
+}
+
+tr>td {
+    /* padding-left: 5px; */
+    text-align: left;
+    border-bottom: 1px solid gray;
+}
+
+th>tr {
+    color: black;
+}
+
+
+td {
+    padding: 10px 0px;
+    color: gray;
+    font-size: 14px;
+}
+
+.totalWrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 40px;
+
+}
+
+
+.addItem,
+.bookNow {
+    flex: 0 0 45%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+
+
+.bookNow {
+    padding: 20px;
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+}
+
+.bookNow input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    outline: none;
+}
+
+.fullName,
+.idPhone {
+    padding: 10px 0px;
+}
+
+.idPhone {
+    display: flex;
+    justify-content: space-between;
+}
+
+.idPhone div {
+    width: 48%;
+}
+
+label {
+    padding: 2px 0px;
+}
+
+.bookBtn {
+    width: 100%;
+    color: white;
+    border-radius: 10px;
+    background-color: #5763F9;
+    padding: 10px 0px;
+    border: none;
+}
+
+.bookBtn:hover {
+    background-color: #3340f7;
+}
+
+/* left section end */
+
+/* right section start */
+.right {
+    padding: 10px;
+    height: 100%;
+    background-color: white;
+}
+
+.right p {
+    color: gray;
+    padding: 10px 0px;
+}
+
+.serviceImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.servicePrice span {
+    font-size: 20px;
+}
+
+.servicePrice {
+    width: 100%;
+}
+
+.skipItem {
+    flex-basis: 25%;
+    padding: 5px 20px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    background-color: #fad3cd;
+    color: #F64B66;
+}
+
+.skipItem:hover {
+    background-color: #ebaea5;
+    color: #F64B66;
+}
+
+.addItems {
+    flex-basis: 70%;
+    padding: 5px 20px;
+    border-radius: 10px;
+    border: none;
+    color: #5f9b5a;
+    background-color: #d3f3d6;
+}
+
+.addItems:hover {
+    background-color: #b3e4b7;
+}
+
+/* right section end */
+
+
+
+/* Service Section End */
+
+/* Meida Query */
+@media (max-width:768px) {
+
+    .navbar {
+        padding: 0px;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .wrapper {
+        flex-direction: column;
+    }
+
+    .right {
+        margin-top: 50px;
+        width: 100%;
+        /* make them full-width */
+        height: auto;
+        flex: none;
+    }
+
+}
