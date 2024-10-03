@@ -1,3 +1,5 @@
+
+
 alert("Search Products By Title")
 
 
@@ -37,6 +39,7 @@ class Products {
         })
 
     }
+
 
     // filteredProducts
     filterProducts(keyword) {
@@ -83,3 +86,9 @@ searchBtn.addEventListener("click", async () => {
 searchInput.addEventListener('input', () => {
     pro.filterProducts(searchInput.value)
 })
+
+
+// let firstName = "john"
+// let lastName = "doe"
+
+// console.log(`${firstName} ${lastName} GoodMorning`)
