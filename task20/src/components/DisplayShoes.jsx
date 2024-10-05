@@ -68,7 +68,7 @@ function DisplayShoes() {
                                     <div className="priceQuantity flex justify-between p-5">
                                         <span>${product.price}</span>
                                         <div className='px-5 '>
-                                            <button className='px-2 bg-red-300 rounded-lg' onClick={() => { handleIncrement(product) }}>+</button>  <span>{product.quantity}</span> <button className='px-3 bg-red-300 rounded-lg '>-</button>
+                                            <button className='px-3 bg-red-300 rounded-lg '>-</button>    <span>{product.quantity}</span>    <button className='px-2 bg-red-300 rounded-lg' onClick={() => { handleIncrement(product) }}>+</button>
                                         </div>
                                     </div>
                                 </div>
