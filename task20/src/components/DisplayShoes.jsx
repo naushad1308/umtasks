@@ -1,13 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import { products } from './Constant'
 
+// adding an already existing item should increase its quantity decrement button not working when item count reaches 0, it should be removed from cart
+
 function DisplayShoes() {
     let [pro, setPro] = useState(products)
     let [addCart, setAddCart] = useState([])
 
     const handleAddToCart = (product) => {
-        setAddCart([...addCart, product])
-    }
+        const index = addCart.findIndex((item) => item.id === product.id);
+        if (index !== -1) {
+            const updatedProduct = { ...product, quantity: addCart[index].quantity + 1 };
+            setAddCart([...addCart.slice(0, index), updatedProduct, ...addCart.slice(index + 1)]);
+        } else {
+            setAddCart([...addCart, { ...product, quantity: 1 }]);
+        }
+    };
 
     const calculateTotal = () => {
         let total = 0
@@ -25,8 +33,22 @@ function DisplayShoes() {
         }
     };
 
+
+    const handleDecrement = (product) => {
+        const index = addCart.findIndex((item) => item.id === product.id);
+        if (index !== -1) {
+            if (product.quantity > 1) {
+                const updatedProduct = { ...product, quantity: product.quantity - 1 };
+                setAddCart([...addCart.slice(0, index), updatedProduct, ...addCart.slice(index + 1)]);
+            } else {
+                setAddCart(addCart.filter((item) => item.id !== product.id));
+            }
+        }
+    };
+
     return (
         <div className=' px-7 py-5 flex justify-between  '>
+            {/* Left Container */}
             <div className="shoesCardWrapper flex justify-around mt-16 gap-1  overflow-auto flex-wrap w-7/12 ">
 
                 {pro.map((product, index) => (
@@ -68,7 +90,10 @@ function DisplayShoes() {
                                     <div className="priceQuantity flex justify-between p-5">
                                         <span>${product.price}</span>
                                         <div className='px-5 '>
-                                            <button className='px-3 bg-red-300 rounded-lg '>-</button>    <span>{product.quantity}</span>    <button className='px-2 bg-red-300 rounded-lg' onClick={() => { handleIncrement(product) }}>+</button>
+                                            <button className='px-2 bg-red-300 rounded-lg' onClick={() => { handleDecrement(product) }}>-</button>
+                                            <span>{product.quantity}</span>
+                                            <button className='px-2 bg-red-300 rounded-lg' onClick={() => { handleIncrement(product) }}>+</button>
+
                                         </div>
                                     </div>
                                 </div>
