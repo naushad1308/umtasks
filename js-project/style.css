@@ -148,8 +148,6 @@
     padding-top: 10px;
 }
 
-
-
 .right {
     display: flex;
     justify-content: center;
@@ -209,9 +207,10 @@
     font-size: 2rem;
 }
 
-
 /* Service Overview End */
 
+
+/* Services Start */
 .servicesSection {
     height: 100vh;
     width: 100%;
@@ -219,15 +218,16 @@
     justify-content: space-between;
     background-color: #d0d2d3;
     padding: 20px 80px;
+
+
 }
 
 .s_Left,
 .s_Right {
-    /* flex: 1 1 40%; */
-    /* border: 1px solid red; */
     padding: 20px;
     background-color: white;
     border-radius: 10px;
+
 }
 
 .s_Left {
@@ -250,7 +250,7 @@
 .serviceList>table {
     width: 100%;
     padding: 10px 0px;
-    line-height: 3.5;
+    line-height: 3;
 }
 
 .addRemoveItem {
@@ -264,10 +264,37 @@
 /* .s_Left end */
 
 /* .s_Right start */
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #555;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.tableWrapper {
+    height: 150px;
+    overflow: auto;
+}
+
 .addedItem {
     width: 100%;
     line-height: 2.2;
 }
+
 
 .serviceHeading {
     font-weight: bold;
@@ -313,6 +340,11 @@
         width: 50%;
     }
 
+    .leftt>img {
+        height: 10px;
+        width: 10px;
+    }
+
     .left>h1 {
         font-size: 3rem;
         text-align: left;
@@ -326,6 +358,16 @@
 
     .servicesSection {
         flex-wrap: wrap;
+        height: 200vh;
+    }
+
+    .s_Left {
+        flex-basis: 100%;
+    }
+
+    .s_Right {
+        margin-top: 10px;
+        flex-basis: 100%;
     }
 
 }
