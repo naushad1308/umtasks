@@ -14,7 +14,7 @@ function App() {
     //   )) : <div>loading.... </div>}
     // </div>
 
-    <div className='bg-slate-950'>
+    <div className='bg-slate-950 h-screen'>
       <h1 className='text-white text-center text-2xl font-bold py-5'>Photos</h1>
       <div className='w-full flex justify-center flex-wrap h-full gap-3 bg-slate-950'>
         {data ? data.map((photo) => (
