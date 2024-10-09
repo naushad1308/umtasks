@@ -8,11 +8,7 @@ function App() {
   }
 
   return (
-    // <div>
-    //   {data ? data.map((user, index) => (
-    //     <h1 key={index}> {user.name} </h1>
-    //   )) : <div>loading.... </div>}
-    // </div>
+
 
     <div className='bg-slate-950 h-screen'>
       <h1 className='text-white text-center text-2xl font-bold py-5'>Photos</h1>
