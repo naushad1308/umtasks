@@ -59,8 +59,10 @@ class Services {
                 });
                 const bookNowButton = document.querySelector("#bookNowButton");
                 bookNowButton.disabled = true;
-                let addItemInfo = document.querySelector("#addItemInfo")
-                addItemInfo.style.display = "block"
+                let addItemInfo = document.querySelector("#addItemInfo");
+                addItemInfo.style.display = "block"; // Show when cart is empty
+                let info = document.querySelector("#info");
+                info.style.display = "block"; // Show when cart is empty
             }
 
         } else {
@@ -72,8 +74,10 @@ class Services {
             });
             const bookNowButton = document.querySelector("#bookNowButton");
             bookNowButton.disabled = false;
-            let addItemInfo = document.querySelector("#addItemInfo")
-            addItemInfo.style.display = "none"
+            let addItemInfo = document.querySelector("#addItemInfo");
+            addItemInfo.style.display = "none"; // Hide when cart has items
+            let info = document.querySelector("#info");
+            info.style.display = "none"; // Hide when cart has items
         }
     }
     addToCart(service, button) {
@@ -128,14 +132,16 @@ class Services {
             addItemListContainer.appendChild(newRow);
         });
 
-        let addItemInfo = document.querySelector("#addItemInfo")
+        let addItemInfo = document.querySelector("#addItemInfo");
+        let info = document.querySelector("#info");
         if (this.cart.length > 0) {
-            addItemInfo.style.display = "none"
+            addItemInfo.style.display = "none"; // Hide when cart has items
+            info.style.display = "none"; // Hide when cart has items
         } else {
-            addItemInfo.style.display = "block"
+            addItemInfo.style.display = "block"; // Show when cart is empty
+            info.style.display = "block"; // Show when cart is empty
         }
     }
-
     updateTotal() {
         let total = 0;
         this.cart.forEach((service) => {
