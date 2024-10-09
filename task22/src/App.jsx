@@ -4,7 +4,7 @@ function App() {
   const { data, error, loading } = useFetch('https://jsonplaceholder.typicode.com/albums/1/photos')
 
   if (error) {
-    return <div className='w-full flex justify-center h-[34rem] items-center text-5xl bg-slate-950 text-red-500'>Error: {error.message}</div>;
+    return <div className='w-full flex justify-center h-screen items-center text-5xl bg-slate-950 text-red-500'>Error: {error.message}</div>;
   }
 
   return (
