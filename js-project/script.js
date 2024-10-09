@@ -1,213 +1,139 @@
-const LaundaryServices = [
-    {
-        "id": 1,
-        emoji: "👗",
-        name: "Dry Clean",
-        price: 200,
-        button: "Add"
-    },
-    {
-        "id": 2,
-        emoji: "💦",
-        name: "Wash",
-        price: 300,
-        button: "Add"
-    },
-    {
-        "id": 3,
-        emoji: "👘",
-        name: "Iron",
-        price: 100,
-        button: "Add"
-    },
-    {
-        "id": 4,
-        emoji: "🦠",
-        name: "Stain Remove",
-        price: 300,
-        button: "Add"
-    },
-    {
-        "id": 5,
-        emoji: "🍁",
-        name: "Leather Clean",
-        price: 100,
-        button: "Add"
-    },
-    {
-        "id": 6,
-        emoji: "👰",
-        name: "Wedding Dress",
-        price: 500,
-        button: "Add"
-    },
-]
-
-// console.log(serviceListTable)
+class Service {
+    constructor(id, emoji, name, price) {
+        this.id = id;
+        this.emoji = emoji;
+        this.name = name;
+        this.price = price;
+    }
+}
 
 class Services {
     constructor(services) {
         this.services = services;
-        this.cart = []
+        this.cart = [];
     }
 
     showServices() {
-        const serviceListTable = document.querySelector(".serviceTableBody")
-
-        this.services.forEach(service => {
-            let newRow = document.createElement('tr');
-
-            let emojiCell = document.createElement('td');
+        const serviceListTable = document.querySelector(".serviceTableBody");
+        this.services.forEach((service) => {
+            const newRow = document.createElement("tr");
+            const emojiCell = document.createElement("td");
             emojiCell.textContent = service.emoji;
             newRow.appendChild(emojiCell);
 
-            let nameCell = document.createElement('td');
+            const nameCell = document.createElement("td");
             nameCell.textContent = service.name;
             newRow.appendChild(nameCell);
 
-            let priceCell = document.createElement('td');
+            const priceCell = document.createElement("td");
             priceCell.textContent = `Rs ${service.price}`;
             newRow.appendChild(priceCell);
 
-            let buttonCell = document.createElement('td');
-            buttonCell.className = 'addRemoveItem';
-
-            let button = document.createElement('button');
-            button.className = 'addBtn btn btn-success px-4';
-            button.textContent = service.button;
-            button.addEventListener('click', this.buttonClickHandler.bind(this, service))
-
+            const buttonCell = document.createElement("td");
+            buttonCell.className = "addRemoveItem";
+            const button = document.createElement("button");
+            button.className = "addBtn btn btn-success px-4";
+            button.textContent = "Add";
+            button.addEventListener("click", () => this.buttonClickHandler(service, button));
             buttonCell.appendChild(button);
             newRow.appendChild(buttonCell);
 
             serviceListTable.appendChild(newRow);
-        })
+        });
+
+        // // Disable input and book now button by default
+        // const inputField = document.querySelector("#inputField");
+        // const bookNowButton = document.querySelector("#bookNowButton");
+        // inputField.disabled = true;
+        // bookNowButton.disabled = true;
     }
+    buttonClickHandler(service, button) {
+        if (this.cart.includes(service)) {
+            this.removeFromCart(service, button);
 
-    buttonClickHandler(service, event) {
-        console.log(service)
-        // console.log(event)
-        const button = event.target;
-        // const service = button.service;
+            // Disable input and book now button if cart is empty
+            if (this.cart.length === 0) {
+                const inputField = document.querySelectorAll(".input");
+                inputField.forEach((i) => {
+                    i.disabled = true;
+                });
+                const bookNowButton = document.querySelector("#bookNowButton");
+                bookNowButton.disabled = true;
+                let addItemInfo = document.querySelector("#addItemInfo")
+                addItemInfo.style.display = "block"
+            }
 
-        if (button.textContent === 'Add') {
+        } else {
             this.addToCart(service, button);
 
-
-            let input = document.querySelectorAll(".input")
-            input.forEach((i) => {
-                // i.removeAttribute("readonly");
-                i.disabled = false
-            })
-
-            let bookNowBtn = document.querySelector(".bookNowBtn")
-            bookNowBtn.disabled = false;
-        } else {
-            this.removeFromCart(service, button);
-            let bookNowBtn = document.querySelector(".bookNowBtn")
-            bookNowBtn.disabled = true;
-        }
-        if (this.cart.length === 0) {
-            addItemInfo.style.display = "block"
-
-
-
-        } else {
+            const inputField = document.querySelectorAll(".input");
+            inputField.forEach((i) => {
+                i.disabled = false;
+            });
+            const bookNowButton = document.querySelector("#bookNowButton");
+            bookNowButton.disabled = false;
+            let addItemInfo = document.querySelector("#addItemInfo")
             addItemInfo.style.display = "none"
         }
-
     }
     addToCart(service, button) {
-        // console.log(service)
         this.cart.push(service);
-        // console.log(this.cart);
-
-        // update button text to 'Remove Item'
-        button.textContent = 'Remove';
-        button.className = 'btn btn-danger px-2';
-
-        // add the newly added item to the cart UI
-        let addItemListContainer = document.querySelector(".addItemListContainer");
-        let newRow = document.createElement('tr');
-        let sn = document.createElement('td');
-        sn.textContent = this.cart.length;
-        newRow.appendChild(sn);
-
-        let name = document.createElement('td');
-        name.textContent = service.name;
-        newRow.appendChild(name);
-
-        let price = document.createElement('td');
-        price.textContent = service.price;
-        newRow.appendChild(price);
-
-        addItemListContainer.appendChild(newRow);
-
-        // calculate and update the total
+        button.textContent = "Remove";
+        button.className = "removeBtn btn btn-danger px-2";
+        this.updateCartUI();
         this.updateTotal();
+
+
+        // const inputField = document.querySelector("#inputField");
+        // inputField.disabled = false;
+
     }
 
     removeFromCart(service, button) {
-        // remove item from cart
-        const index = this.cart.findIndex((cartService) => cartService.id === service.id);
+        const index = this.cart.indexOf(service);
         if (index !== -1) {
             this.cart.splice(index, 1);
         }
-        console.log(this.cart);
-
-        // update button text back to 'Add Item'
-        button.textContent = 'Add';
-        button.className = 'btn btn-success px-4';
-
-        // remove the corresponding table row from the UI
-        const addItemListContainer = document.querySelector(".addItemListContainer");
-        const rows = addItemListContainer.rows;
-        for (let i = 0; i < rows.length; i++) {
-            if (rows[i].cells[0].textContent === service.id.toString()) {
-                addItemListContainer.removeChild(rows[i]);
-                break;
-            }
-        }
-        // renumber the serial numbers in the cart UI
-        for (let i = 0; i < rows.length; i++) {
-            rows[i].cells[0].textContent = (i + 1).toString();
-        }
-        // calculate and update the total
+        button.textContent = "Add";
+        button.className = "addBtn btn btn-success px-4";
+        this.updateCartUI();
         this.updateTotal();
+
+        // Disable input and book now button if cart is empty
+        // const inputField = document.querySelector("#inputField");
+        // const bookNowButton = document.querySelector("#bookNowButton");
+        // if (this.cart.length === 0) {
+        //     inputField.disabled = true;
+        //     bookNowButton.disabled = true;
+        // }
     }
 
-    showCartItems() {
+    updateCartUI() {
+        const addItemListContainer = document.querySelector(".addItemListContainer");
+        addItemListContainer.innerHTML = "";
+        this.cart.forEach((service, index) => {
+            const newRow = document.createElement("tr");
+            const sn = document.createElement("td");
+            sn.textContent = index + 1;
+            newRow.appendChild(sn);
+
+            const name = document.createElement("td");
+            name.textContent = service.name;
+            newRow.appendChild(name);
+
+            const price = document.createElement("td");
+            price.textContent = "Rs " + service.price;
+            newRow.appendChild(price);
+
+            addItemListContainer.appendChild(newRow);
+        });
+
         let addItemInfo = document.querySelector("#addItemInfo")
-        alert("hello")
-
-        // clear the cart UI
-        let addItemListContainer = document.querySelector(".addItemListContainer");
-        while (addItemListContainer.firstChild) {
-            addItemListContainer.removeChild(addItemListContainer.firstChild);
+        if (this.cart.length > 0) {
+            addItemInfo.style.display = "none"
+        } else {
+            addItemInfo.style.display = "block"
         }
-
-        // add the items in the cart to the UI
-
-        // this.cart.forEach((service, i) => {
-        //     let newRow = document.createElement('tr');
-        //     let sn = document.createElement('td');
-        //     sn.textContent = service.id;
-        //     newRow.appendChild(sn);
-
-        //     let name = document.createElement('td');
-        //     name.textContent = service.name;
-        //     newRow.appendChild(name);
-
-        //     let price = document.createElement('td');
-        //     price.textContent = service.price;
-        //     newRow.appendChild(price);
-
-        //     total += parseInt(service.price);
-
-        //     addItemListContainer.appendChild(newRow);
-        // });
-
-
     }
 
     updateTotal() {
@@ -215,12 +141,57 @@ class Services {
         this.cart.forEach((service) => {
             total += service.price;
         });
-
-        let totalElement = document.querySelector("#totalAmout");
-        totalElement.textContent = `Total: Rs ${total}`;
+        const totalElement = document.querySelector("#totalAmount");
+        totalElement.textContent = ` Rs ${total}`;
     }
 }
 
-let service = new Services(LaundaryServices)
-service.showServices()
-// service.showCartItems()
+const laundryServices = [
+    new Service(1, "👗", "Dry Clean", 200),
+    new Service(2, "💦", "Wash", 300),
+    new Service(3, "👘", "Iron", 100),
+    new Service(4, "🦠", "Stain Remove", 300),
+    new Service(5, "🍁", "Leather Clean", 100),
+    new Service(6, "👰", "Wedding Dress", 500),
+];
+
+const services = new Services(laundryServices);
+services.showServices();
+
+
+
+// Email js send form
+(function () {
+    emailjs.init("UYomxfdG5wfiCe1pr");
+})();
+
+
+
+
+window.onload = function () {
+    document.getElementById('contact-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+        emailjs.sendForm('service_yy1oa6k', 'template_sxys6up', this)
+            .then(() => {
+                console.log('SUCCESS!');
+                Toastify({
+                    text: "Thankyou for Booking with us",
+                    duration: 3000,
+                    // destination: "https://github.com/apvarun/toastify-js",
+                    newWindow: true,
+                    close: true,
+                    gravity: "top", // `top` or `bottom`
+                    position: "right", // `left`, `center` or `right`
+                    stopOnFocus: true, // Prevents dismissing of toast on hover
+                    style: {
+
+                        background: "linear-gradient(to right, #00b09b, #96c93d)",
+                    },
+                    onClick: function () { } // Callback after click
+                }).showToast();
+                this.reset();
+            }, (error) => {
+                console.log('FAILED...', error);
+            });
+    });
+}

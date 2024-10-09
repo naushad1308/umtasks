@@ -337,9 +337,9 @@
         display: none;
     }
 
-    .profile {
+    /* .profile {
         width: 50%;
-    }
+    } */
 
     .leftt>img {
         height: 10px;
@@ -384,9 +384,7 @@
         display: none;
     }
 
-    .profile {
+    /* .profile {
         width: 75%;
-
-
-    }
+    } */
 }
