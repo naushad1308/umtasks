@@ -7,6 +7,7 @@ class Service {
     }
 }
 
+
 class Services {
     constructor(services) {
         this.services = services;
@@ -196,6 +197,25 @@ window.onload = function () {
                     onClick: function () { } // Callback after click
                 }).showToast();
                 this.reset();
+
+                // Empty and diable cart 
+                const addItemListContainer = document.querySelector(".addItemListContainer");
+                addItemListContainer.innerHTML = "";
+                const inputField = document.querySelectorAll(".input");
+                inputField.forEach((i) => {
+                    i.disabled = true;
+                });
+                const bookNowButton = document.querySelector("#bookNowButton");
+                bookNowButton.disabled = true;
+                let addItemInfo = document.querySelector("#addItemInfo");
+                addItemInfo.style.display = "block"; // Show when cart is empty
+                let info = document.querySelector("#info");
+                info.style.display = "block"; // Show when cart is empty
+
+                // Redirect to next page
+                setTimeout(() => {
+                    window.location.href = 'payment.html';
+                }, 1000);
             }, (error) => {
                 console.log('FAILED...', error);
             });
