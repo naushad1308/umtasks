@@ -169,7 +169,7 @@ services.showServices();
 
 // Email js send form
 (function () {
-    emailjs.init("UYomxfdG5wfiCe1pr");
+    emailjs.init("DI3eyTp3b2HvdeNrU");
 })();
 
 
@@ -178,9 +178,23 @@ services.showServices();
 window.onload = function () {
     document.getElementById('contact-form').addEventListener('submit', function (event) {
         event.preventDefault();
-        emailjs.sendForm('service_yy1oa6k', 'template_sxys6up', this)
+        const serviceID = 'service_mh0p9kd';
+        const templateID = 'template_76ty2h8';
+        const userID = 'DI3eyTp3b2HvdeNrU'
+
+
+        var params = {
+            from_name: "naushad",
+            name: document.getElementById('user_name').value,
+            message: "Thankyou for contact Us we will get back to you shortly",
+            to_email: document.getElementById('user_email').value,
+        };
+
+
+
+        emailjs.send(serviceID, templateID, params)
             .then(() => {
-                console.log('SUCCESS!');
+                console.log('SUCCESS!', params);
                 Toastify({
                     text: "Thankyou for Booking with us",
                     duration: 3000,
