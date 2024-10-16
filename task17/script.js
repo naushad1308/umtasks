@@ -22,7 +22,7 @@ let addItemBtn = document.querySelector("#addItemBtn");
 
 let index = 0;
 addItemBtn.addEventListener('click', () => {
-    const serviceContainer = document.querySelector("#serviceContainer")
+    let serviceContainer = document.querySelector("#serviceContainer")
     let tbody = document.querySelector("#tbody")
     let totalAmount = document.querySelector("#totalAmount")
     let hide = document.querySelector(".hide")
@@ -59,7 +59,7 @@ addItemBtn.addEventListener('click', () => {
         index++;
     } else {
         serviceContainer.innerHTML = ` <div style = "height:330px;" class = "text-center p-5">No More Items</div>`
-        console.log("No more items to add.");
+        // console.log("No more items to add.");
     }
 });
 
@@ -83,9 +83,10 @@ skipItemBtn.addEventListener('click', () => {
 
 
         index++;
-        console.log("Updated addedItem array:", addedItem);
+        // console.log("Updated addedItem array:", addedItem);
     } else {
         console.log("No more items to add.");
+        serviceContainer.innerHTML = ` <div style = "height:330px;" class = "text-center p-5">No More Items</div>`
     }
 });
 
