@@ -1,20 +1,21 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
-import { createBrowserRouter } from 'react-router-dom'
-import Payment from './components/Payment.jsx'
 import NotFound from './components/NotFound.jsx'
-import { RouterProvider } from 'react-router-dom'
+import Payment from './components/Payment.jsx'
+import { createBrowserRouter } from 'react-router-dom'
 import DisplayShoes from './components/DisplayShoes.jsx'
-import { CartProvider } from './components/CartContext.jsx'
-
-
+import { RouterProvider } from 'react-router-dom'
+import { store } from './store/store.js'
+import { Provider } from 'react-redux'
 
 const router = createBrowserRouter([
   {
-    element: <CartProvider> {/* Wrap App with CartProvider */}
-      <App />
-    </CartProvider>,
+    element:
+      <Provider store={store}>
+        <App />
+      </Provider>
+    ,
     errorElement: <NotFound />,
     children: [
       {
@@ -30,6 +31,7 @@ const router = createBrowserRouter([
   },
 
 ])
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
