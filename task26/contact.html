@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./contact.css">
+    <title>Contact Us</title>
+</head>
+
+<body>
+    <nav class="navBar">
+        <h1 class="logo">Laundary </h1>
+        <ul class="menu">
+            <li class="menuItem"><a href="/">Home</a></li>
+            <li class="menuItem"><a href="/about">AboutUs</a></li>
+            <li class="menuItem"><a href="/contact">Contact</a></li>
+        </ul>
+        <div class="profile">
+            <span class="userName">Naushad </span>
+            <button class="hamburger"><i class="bi bi-list"></i></button>
+
+
+            <div class="sidebar">
+                <ul class="sidebarMenu">
+                    <li class="menuItem">Home</li>
+                    <li class="menuItem">AboutUs</li>
+                    <li class="menuItem">Contact</li>
+                </ul>
+            </div>
+        </div>
+
+
+    </nav>
+
+
+    <section id="contact-us">
+        <h1>Contact Us</h1>
+        <p>If you have any questions or need assistance, please fill out the form below or reach out to us through our
+            contact information.</p>
+
+        <form action="/submit-contact" method="POST">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+
+            <button type="submit">Send Message</button>
+        </form>
+
+        <h2>Our Contact Information</h2>
+        <p>Email: <a href="mailto:info@yourlaundryservice.com">info@yourlaundryservice.com</a></p>
+        <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+        <p>Address: 123 Laundry St, Clean City, State, Zip</p>
+    </section>
+</body>
+
+</html>
