@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100">
+
+    <nav class="bg-white shadow">
+        <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+            <div class="relative flex items-center justify-between h-16">
+                <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                    <button
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-white"
+                        aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+                    <div class="flex-shrink-0">
+                        <a href="#" class="text-xl font-bold text-gray-800">MyLogo</a>
+                    </div>
+                    <div class="hidden sm:block sm:ml-6">
+                        <input id="searchInput" type="text" placeholder="Search..."
+                            class="border border-gray-300 rounded-md p-1" />
+                    </div>
+                    <div class="hidden sm:block sm:ml-6">
+                        <div class="flex space-x-4">
+                            <a href="#"
+                                class="text-gray-900 hover:bg-gray-200 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                            <a href="#"
+                                class="text-gray-900 hover:bg-gray-200 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">About</a>
+                            <a href="#"
+                                class="text-gray-900 hover:bg-gray-200 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Services</a>
+                            <a href="#"
+                                class="text-gray-900 hover:bg-gray-200 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+                            <div class="relative">
+                                <button id="cartButton"
+                                    class="text-gray-900 hover:bg-gray-200 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">
+                                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M3 3h2l1 9h12l1-9h2M3 3l1 9m0 0h12m-12 0l1 9h12l1-9m-12 0h12" />
+                                    </svg>
+                                    <span id="cartCount"
+                                        class="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold rounded-full px-1"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sm:hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <div class="w-80">
+                    <input type="text" placeholder="Search..." class="border border-gray-300 rounded-md p-1 w-80" />
+                </div>
+                <a href="#"
+                    class="text-gray-900 hover:bg-gray-200 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="#"
+                    class="text-gray-900 hover:bg-gray-200 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">About</a>
+                <a href="#"
+                    class="text-gray-900 hover:bg-gray-200 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Services</a>
+                <a href="#"
+                    class="text-gray-900 hover:bg-gray-200 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-7xl mx-auto flex mt-6">
+        <div class="w-1/4 bg-white p-4 shadow-md rounded-lg">
+            <h2 class="text-lg font-semibold mb-4">Categories</h2>
+            <form>
+                <div class="mb-2">
+                    <input type="radio" id="category1" name="category" value="electronics" class="mr-2">
+                    <label for="category1" class="text-gray-700">Electronics</label>
+                </div>
+                <div class="mb-2">
+                    <input type="radio" id="category2" name="category" value="jewelery" class="mr-2">
+                    <label for="category2" class="text-gray-700">Jewelery</label>
+                </div>
+                <div class="mb-2">
+                    <input type="radio" id="category3" name="category" value="men's clothing" class="mr-2">
+                    <label for="category3" class="text-gray-700">Men's Clothing</label>
+                </div>
+                <div class="mb-2">
+                    <input type="radio" id="category4" name="category" value="women's clothing" class="mr-2">
+                    <label for="category4" class="text-gray-700">Women's Clothing</label>
+                </div>
+            </form>
+        </div>
+
+        <div class="w-3/4 pl-4">
+            <h2 class="text-lg font-semibold mb-4">Products</h2>
+            <div id="productContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Product cards will be dynamically inserted here -->
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('button[aria-controls="mobile-menu"]');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Fetch products from API and render them
+        let allProducts = [];
+        let cart = [];
+
+        async function fetchProducts() {
+            try {
+                const response = await fetch('https://fakestoreapi.com/products');
+                allProducts = await response.json();
+                renderProducts(allProducts);
+            } catch (error) {
+                console.error('Error fetching products:', error);
+            }
+        }
+
+        function renderProducts(products) {
+            const productContainer = document.getElementById('productContainer');
+            productContainer.innerHTML = ''; // Clear previous products
+
+            products.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'bg-white p-4 shadow-md rounded-lg';
+                productCard.innerHTML = `
+                <h3 class="text-md font-semibold">${product.title}</h3>
+                <p class="text-gray-600">${product.description}</p>
+                <p class="text-lg font-bold mt-2">$${product.price}</p>
+                <button class="add-to-cart bg-blue-500 text-white px-3 py-1 rounded-md mt-2" data-id="${product.id}">Add to Cart</button>
+            `;
+                productContainer.appendChild(productCard);
+            });
+
+            // Add event listeners to "Add to Cart" buttons
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const productId = button.getAttribute('data-id');
+                    addToCart(productId);
+                });
+            });
+        }
+
+        function addToCart(productId) {
+            const product = allProducts.find(p => p.id == productId);
+            if (product) {
+                cart.push(product);
+                updateCartUI();
+                updateCartCount();
+            }
+        }
+
+        function updateCartUI() {
+            const cartContainer = document.getElementById('cartContainer');
+            cartContainer.innerHTML = ''; // Clear previous cart items
+
+            if (cart.length === 0) {
+                cartContainer.innerHTML = '<p class="text-gray-700">Your cart is empty.</p>';
+                return;
+            }
+
+            cart.forEach(item => {
+                const cartItem = document.createElement('div');
+                cartItem.className = 'flex justify-between items-center p-2 border-b';
+                cartItem.innerHTML = `
+                <span>${item.title} - $${item.price}</span>
+                <button class="remove-from-cart text-red-500" data-id="${item.id}">Remove</button>
+            `;
+                cartContainer.appendChild(cartItem);
+            });
+
+            // Add event listeners to "Remove" buttons
+            const removeFromCartButtons = document.querySelectorAll('.remove-from-cart');
+            removeFromCartButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const productId = button.getAttribute('data-id');
+                    removeFromCart(productId);
+                });
+            });
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id != productId);
+            updateCartUI();
+            updateCartCount();
+        }
+
+        function updateCartCount() {
+            const cartCount = document.getElementById('cartCount');
+            cartCount.textContent = cart.length > 0 ? cart.length : '';
+        }
+
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', () => {
+            const searchTerm = searchInput.value.toLowerCase();
+            const filteredProducts = allProducts.filter(product =>
+                product.title.toLowerCase().includes(searchTerm) ||
+                product.description.toLowerCase().includes(searchTerm)
+            );
+            renderProducts(filteredProducts);
+        });
+
+        // Category filter functionality
+        const categoryRadios = document.querySelectorAll('input[name="category"]');
+
+        categoryRadios.forEach(radio => {
+            radio.addEventListener('change', () => {
+                const selectedCategory = radio.value;
+                const filteredProducts = selectedCategory ? allProducts.filter(product => product.category === selectedCategory) : allProducts;
+                renderProducts(filteredProducts);
+            });
+        });
+
+        // Cart button click event
+        document.getElementById('cartButton').addEventListener('click', () => {
+            window.location.href = 'cart.html'; // Redirect to cart page
+        });
+
+        fetchProducts();
+    </script>
+</body>
+
+</html>
